@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get('/', {to: 'home#index', as: 'root'})
   get('/about', {to: 'home#about', as: 'about'})
 
+  get('/contacts/new', {to:'contacts#new', as:'contacts_new'})
+  post('/contacts', {to: 'contacts#create'})
+
 end
