@@ -1,24 +1,14 @@
-# README
+# Amazing Amazon
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Created using Ruby on Rails, Amazing Amazon allows you to create new products, see a list of all the products, edit/delete items and leave reviews for each item.
 
-Things you may want to cover:
+## Technology
+* Ruby
+* Ruby on Rails
+* HTML
+* JavaScript
+* SCSS
+* CSS
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
