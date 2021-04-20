@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get('/contacts/new', {to:'contacts#new', as:'contacts_new'})
   post('/contacts', {to: 'contacts#create'})
 
+  resources :products do
+  end
 end
+
