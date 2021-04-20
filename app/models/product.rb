@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
 
+    has_many :reviews, dependent: :destroy
+
     DEFAULT_PRICE = 1
 
     before_validation :set_default_price

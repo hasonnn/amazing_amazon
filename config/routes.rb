@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post('/contacts', {to: 'contacts#create'})
 
   resources :products do
+    resources :reviews, only:[:create, :destroy]
   end
 end
 
