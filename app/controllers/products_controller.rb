@@ -18,8 +18,6 @@ class ProductsController < ApplicationController
         end
     end
     def show
-        @product = Product.find params[:id]
-        @review = Review.new
     end
     def edit
     end

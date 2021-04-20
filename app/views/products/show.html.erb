@@ -6,15 +6,4 @@
 <%= link_to "Edit", edit_product_path(@product)%>
 <%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
 
-<%= render 'reviews/form'%>
-
-<% @product.reviews.each do |review| %>
-
-<%= review.body %>
-<%= review.rating %>
-
-<%= link_to("Delete Review", product_review_path(@product, review), method: :delete, data:{confirm: 'Are you sure?'})%>
-<hr>
-
-<% end %>
 
