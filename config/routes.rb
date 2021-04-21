@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only:[:new,:create]
-  
+
+  resource :session, only:[:new,:create, :destroy] #singlar not plural
 end
 
