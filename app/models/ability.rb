@@ -33,13 +33,16 @@ class Ability
 
     alias_action(:create,:read,:update,:delete, to: :crud )
     
-    can(:crud,Question) do |question|
-      user == question.user
+    can(:crud,Product) do |product|
+      user == product.user
     end
 
-    can(:crud,Answer) do |answer|
-      user == answer.user
+    can(:crud,Review) do |review|
+      user == review.user
     end
 
+    if user.is_admin?
+      can :manage, :all 
+    end
   end
 end

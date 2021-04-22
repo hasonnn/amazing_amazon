@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AmazingAmazon</title>
+    <title>Amazing Amazon</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,20 +11,11 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_path  %> |
-    <%= link_to 'About', about_path  %> |
-    <%= link_to 'Products Page', products_path  %> |
-    <%= link_to 'New Product', new_product_path  %>  |
-    <%= link_to 'Contact us', contacts_new_path  %> | 
-    <% if user_signed_in?%>
-        Hello <%= current_user.full_name %>! | 
-        <%= link_to 'Logout', session_path, method: :delete, data:{confirm: 'Are you sure you want to log out?'} %>
-      <% else %>
-        <%= link_to 'Login', new_session_path  %> | 
-        <%= link_to 'Sign Up', new_user_path  %> 
-      <% end %>  
-        
+    <%= render 'layouts/navbar' %>      
     <hr>
-    <%= yield %>
+    <div class='container-fluid'>
+      <%= render 'layouts/alerts'%>
+      <%= yield %>
+    </div>
   </body>
 </html>
