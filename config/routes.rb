@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get('/', {to: 'home#index', as: 'root'})
   get('/about', {to: 'home#about', as: 'about'})
 
-  get('/contacts/new', {to:'contacts#new', as:'contacts_new'})
+  get('/contacts/new', {to:'contacts#new', as: 'contacts_new'})
   post('/contacts', {to: 'contacts#create'})
+  
+  get('/users/panel', {to: 'users#panel', as: 'users_panel'})
 
   resources :products do
     resources :reviews, only:[:create, :destroy]
