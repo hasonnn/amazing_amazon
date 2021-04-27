@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :users, only:[:new,:create]
 
   resource :session, only:[:new,:create, :destroy] #singlar not plural
+
+  resources :news_articles
 end
 
