@@ -18,8 +18,20 @@
 <small><%= time_ago_in_words(review.created_at)%></small>
 <small> Reviewed by: <%= review.user&.full_name || 'DELETED' %></small>
 
+<small>Liked by: <%= review.likes.count %></small>
+<small>
+<% if user_signed_in? && can?(:like, review) %>
+<% like = current_user.likes.find_by_review_id(review) %>
+    <% if like %>
+        <%= link_to 'Unlike', like_path(like), method: :delete %>
+        <% else %>
+        <%= link_to 'Like', review_likes_path(review), method: :post %>
+    <% end %>
+<% end %>
+</small>
+
 <% if can? :crud, review %>
-<%= link_to("Delete Review", product_review_path(@product, review), method: :delete, data:{confirm: 'Are you sure?'})%>
+<%= link_to("Delete Review", review_path(@product, review), method: :delete, data:{confirm: 'Are you sure?'})%>
 <% end %>
 <hr>
 

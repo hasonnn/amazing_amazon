@@ -8,7 +8,7 @@
 
 Product.destroy_all
 
-200.times do
+100.times do
     created_at = Faker::Date.backward(days:365 * 5)
 
     Product.create(

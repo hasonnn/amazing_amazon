@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   get('/users/panel', {to: 'users#panel', as: 'users_panel'})
 
   resources :products do
-    resources :reviews, only:[:create, :destroy]
+    resources :reviews, shallow: true, only:[:create, :destroy] do
+      resources :likes, only:[:create, :destroy]
+      get :liked, on: :collection
+    end
   end
 
   resources :users, only:[:new,:create]
