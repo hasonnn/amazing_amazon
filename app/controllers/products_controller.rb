@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
     def show
         @product = Product.find params[:id]
         @review = Review.new
+        @favorite = @product.favorites.find_by_user_id current_user if user_signed_in?
     end
 
     def edit

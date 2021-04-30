@@ -52,9 +52,15 @@ class Ability
     can(:like, Review) do |review|
       user.persisted? && review.user != user
     end
-
     can(:destroy, Like) do |like|
       like.user == user
+    end
+
+    can(:favorite, Product) do |product|
+      user.persisted? && product.user != user
+    end
+    can(:destroy, Favorite) do |favorite|
+      favorite.user == user
     end
   end
 end

@@ -9,6 +9,14 @@
 <%= link_to "Delete", product_path(@product), method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %> 
 
+<% if user_signed_in? && can?(:favorite, @product) %>
+    <% if @favorite.present? %>
+        <%= link_to 'Un Fav', favorite_path(@favorite), method: :delete %>
+    <% else %>
+        <%= link_to 'Fav', product_favorites_path(@product), method: :post %>
+    <% end %>
+<% end %>
+
 <%= render 'reviews/form'%>
 
 <% @product.reviews.each do |review| %>
