@@ -2,8 +2,14 @@ class ProductsController < ApplicationController
     before_action :authenticate_user!, except:[:index, :show]
     before_action :find_product, only: [:show, :edit, :update, :destroy]
     before_action :authorize_user!, only:[:edit,:update,:destroy]
+
     def index
-        @products = Product.all.order(created_at: :desc)
+        if params[:tag]
+            @tag = Tag.find_or_initialize_by(name: params[:tag])
+            @products = @tag.products.all.order('updated_at DESC')
+        else
+            @products = Product.all.order(created_at: :desc) 
+        end
     end
 
     def new
@@ -46,7 +52,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-        params.require(:product).permit(:title, :description, :price)
+        params.require(:product).permit(:title, :description, :price, :tag_names)
     end
     
     def find_product

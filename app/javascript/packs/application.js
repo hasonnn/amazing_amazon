@@ -11,3 +11,6 @@ Rails.start()
 ActiveStorage.start()
 
 import 'bootstrap';
+import './selectize';
+window.jQuery = $;
+window.$ = $;

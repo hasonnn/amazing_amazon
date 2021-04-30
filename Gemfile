@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'faker', '~> 2.11'
   gem 'cowsay', '~> 0.3.0'
+  gem 'selectize-rails'
 end
 
 group :development do

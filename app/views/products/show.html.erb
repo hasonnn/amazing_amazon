@@ -1,6 +1,19 @@
 <h1><%= @product.title %></h1>
 <p><%= @product.description %></p>
 <p>$<%= @product.price %></p>
+
+<% unless @product.tags.empty? %>
+    <p>
+        Tags:
+        <% @product.tags.each do |tag| %>
+            <%= link_to(
+                tag.name, products_path(tag: tag.name),
+                class: 'badge badge-pill badge-primary'
+            ) %>
+        <% end %>
+    </p>
+<% end %>
+
 <h4>Created by: <%= @product.user&.full_name || 'DELETED'%></h4>
 <p><%= @product.created_at %></p>
 

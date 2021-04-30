@@ -14,3 +14,12 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'bootstrap';
+ @import 'selectize';
+ @import 'selectize.bootstrap3';
+
+ .tag-wrapper {
+     display: inline-block;
+     padding: 0px 5px;
+ }
