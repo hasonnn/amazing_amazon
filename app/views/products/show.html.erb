@@ -51,6 +51,24 @@
 <% end %>
 </small>
 
+<% vote = review.votes.find_by(user: current_user) %>
+    <span class="vote-widget">
+        <% if vote.nil? %>
+          <%= link_to 'vote up', review_votes_path(review, is_up: true), method: :post %>
+          <%= review.vote_total %>
+          <%= link_to 'vote down', review_votes_path(review, is_up: false), method: :post %>
+        <% elsif vote.is_up? %>
+          <%= link_to 'vote up', vote_path(vote), method: :delete, class: 'active' %>
+          <%= review.vote_total %>
+          <%= link_to 'vote down', vote_path(vote, is_up: false), method: :patch %>
+        <% else %>
+          <%= link_to 'vote up', vote_path(vote, is_up: true), method: :patch %>
+          <%= review.vote_total %>
+          <%= link_to 'vote down', vote_path(vote), method: :delete %>
+        <% end %>
+    </span>
+(Total Votes:<%= review.vote_total %>)
+
 <% if can? :crud, review %>
 <%= link_to("Delete Review", review_path(@product, review), method: :delete, data:{confirm: 'Are you sure?'})%>
 <% end %>

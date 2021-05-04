@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, shallow: true, only:[:create, :destroy] do
       resources :likes, only:[:create, :destroy]
-      # get :liked, on: :collection
+      resources :votes, only: [:create, :update, :destroy]
     end
     resources :favorites, shallow: true, only:[:create, :destroy]
   end

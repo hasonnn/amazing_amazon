@@ -11,6 +11,9 @@ class User < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :favorited_products, through: :favorites, source: :product
 
+    has_many :votes, dependent: :destroy 
+    has_many :voted_reviews, through: :votes, source: :review
+
     def full_name
         "#{first_name} #{last_name}"
     end

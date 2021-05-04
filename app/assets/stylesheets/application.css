@@ -18,8 +18,11 @@
  @import 'bootstrap';
  @import 'selectize';
  @import 'selectize.bootstrap3';
+ @import "font-awesome";
 
  .tag-wrapper {
      display: inline-block;
      padding: 0px 5px;
  }
+
+ 
