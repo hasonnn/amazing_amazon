@@ -20,6 +20,8 @@ class ProductsController < ApplicationController
         @product = Product.new product_params
         @product.user = current_user
         if @product.save
+            ProductMailer.new_product(@product).deliver_later
+            # ProductMailer.delay(run_at: 1.minutes.from_now).new_product(@product)
             flash[:notice] = "Product created successfully"
             redirect_to products_path
         else

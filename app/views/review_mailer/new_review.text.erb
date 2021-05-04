@@ -1,0 +1,11 @@
+Hi <%= @product.user.full_name %>,
+
+You've received a review from <%= @review.user.full_name %>
+Review: <%= @review.body %>
+Rating: <%= @review.rating %>
+
+Click on the link to view your new product: <%= product_url(@product.id)%>
+
+Cheers,
+
+Amazing Amazon Team

@@ -1,0 +1,13 @@
+Hi <%= @product.user.full_name %>,
+
+You've created a new product:
+Title: <%= @product.title %>
+Description: <%= @product.description %>
+Price: <%= @product.price %>
+
+
+Click on the link to view your new product: <%= product_url(@product.id)%>
+
+Cheers,
+
+Amazing Amazon Team

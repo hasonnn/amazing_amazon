@@ -28,6 +28,11 @@ gem 'bootstrap', '~> 4.6.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'faker', '~> 2.11'
+gem 'cowsay', '~> 0.3.0'
+gem 'selectize-rails'
+gem 'delayed_job_active_record'
+gem "delayed_job_web"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -35,9 +40,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
-  gem 'faker', '~> 2.11'
-  gem 'cowsay', '~> 0.3.0'
-  gem 'selectize-rails'
 end
 
 group :development do
@@ -49,6 +51,7 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem "letter_opener"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

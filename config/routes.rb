@@ -24,5 +24,13 @@ Rails.application.routes.draw do
   resource :session, only:[:new,:create, :destroy] #singlar not plural
 
   resources :news_articles
+
+  # Delay_Job
+  match(
+    "/delayed_job",
+    to: DelayedJobWeb,
+    anchor:false,
+    via:[:get,:post]
+  )
 end
 
